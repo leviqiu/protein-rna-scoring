@@ -8,8 +8,9 @@ g++ -Wall -m64 -std=c++11 -I. -o calcScore *.o -lm
 
 To run the program:
 
-./calcScore test_protein.pdb test_rna.pdb
+./calcScore 1VFG_protein.pdb 1VFG_rna.pdb
 
-test_protein.pdb is the file for the protein structure, and test_rna.pdb is for the RNA structure. These two files are provided in the testcases folder.
+1VFG_protein.pdb is the file for the protein structure, and 1VFG_rna.pdb is for the RNA structure. These two files are provided in the testcases folder.
+The output score for the test case is -269.7, though minor difference is possible due to different systems used to testing.
 
 Note: you must copy the vdwr.dat file to the folder where you execute the program.
