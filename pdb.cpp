@@ -271,7 +271,7 @@ parsePDBLine(const string & line,
 	     qd_int & idx,
 	     qd_int & resseq,
 	     qd_real & occupancy,
-	     qd_real & tempfactor) throw(std::invalid_argument)
+	     qd_real & tempfactor)
 {
 	recName = line.substr(0, 6);
 	if (recName == "ATOM  " || recName == "HETATM") {

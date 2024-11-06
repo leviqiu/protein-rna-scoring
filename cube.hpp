@@ -41,7 +41,7 @@ public:
 		n++;
 		return *this;
 	};
-	const point & operator[](unsigned i) const throw(std::out_of_range&) {
+	const point & operator[](unsigned i) const {
 		return pts[i];
 	};
 };
@@ -83,7 +83,7 @@ public:
 		return cubes.size();
 	};
 
-	unsigned getCubeIndex(float x, float y, float z) const throw(std::invalid_argument&) {
+	unsigned getCubeIndex(float x, float y, float z) const {
 		if ((x < _xl || x > _xu) ||
 		    (y < _yl || y > _yu) ||
 		    (z < _zl || z > _zu))
@@ -94,7 +94,7 @@ public:
 		return xi * dimy * dimz + yi * dimz + zi;
 	};
 
-	T<unsigned, std::allocator<unsigned> > neighbors(unsigned i) const throw(std::out_of_range&){
+	T<unsigned, std::allocator<unsigned> > neighbors(unsigned i) const {
 		if (i >= cubes.size())
 			throw std::out_of_range("The value of i for box.neighors(i) exceeds" 
 						"the number of cubes the box contains");
@@ -108,13 +108,13 @@ public:
 		int zi = i;
 		T<unsigned, std::allocator<unsigned> > nghbs;
 		for (int k = xi - 1; k <= xi + 1; k++) {
-			if (k < 0 || k >= dimx)
+			if (k < 0 || k >= (int)dimx)
 				continue;
 			for (int l = yi - 1; l <= yi + 1; l++) {
-				if (l < 0 || l >= dimy)
+				if (l < 0 || l >= (int)dimy)
 					continue;
 				for (int m = zi - 1; m <= zi + 1; m++) {
-					if (m < 0 || m >= dimz)
+					if (m < 0 || m >= (int)dimz)
 						continue;
 					nghbs.push_back((unsigned)k * dimy * dimz + 
 							(unsigned)l * dimz + 
@@ -125,11 +125,11 @@ public:
 		return nghbs;
 	};
 
-	const U & operator[](unsigned i) const throw(std::out_of_range&) {
+	const U & operator[](unsigned i) const {
 		return cubes[i];
 	};
 
-	U & operator[](unsigned i) throw(std::out_of_range&) {
+	U & operator[](unsigned i) {
 		return cubes[i];
 	};
 };
