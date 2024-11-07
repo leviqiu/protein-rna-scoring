@@ -1,5 +1,5 @@
 # protein-rna-scoring
-a scoring function for assessing protein-rna complex structures
+A scoring function for assessing protein-rna complex structures
 
 To compile:
 ```
